@@ -1,11 +1,20 @@
 <div class="container">
-  <h1>Le test</h1>
-  <%= @card. question %>
-  <br>
-
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h1>Le test</h1>
+      <%= @card. question %>
       <br>
-      <label for="answer"><span>Voir la réponse</span></label>
-      <input type=radio id="answer" name="group">
-      <span id="content"><%= @card.answer %></span>
 
+          <br>
+          <label for="answer"><span>Voir la réponse</span></label>
+          <input type=radio id="answer" name="group">
+          <span id="content"><%= @card.answer %></span>
+          <br>
+
+          <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>    
+    </div>
+  </div>
+  <div class="text-center">
+    <%= link_to "Revenir à l'acceuil", cards_path, class:'btn btn-primary' %>
+  </div>
 </div>

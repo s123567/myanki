@@ -20,7 +20,7 @@ class CardsController < ApplicationController
   end
 
   def test
-    @cards = Card.all
+    @cards = Card.paginate(page: params[:page], per_page: 1)
     @card = @cards.sample
   end
 
