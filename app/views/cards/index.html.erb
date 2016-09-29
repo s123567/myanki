@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Index de mes cartes !</h1>
+  <% if @cards %>
+    <% @cards.each do |card| %>
+      <p>Q: <%= card.question %></p>
+      <p>A: <%= card.answer %></p>
+    <% end %>
+  <% end %>
+  
+  <br>
+  <p><%= @cards.length %></p>
+  <%= link_to "Ajouter une carte", new_card_path, class:'btn btn-primary'%>
+</div>
