@@ -13,3 +13,15 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+
+
+input {
+    display:none;
+}
+
+span#content {
+    display:none;
+}
+input#answer:checked ~ span#content {
+  display:block;
+}

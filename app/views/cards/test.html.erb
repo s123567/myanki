@@ -1,7 +1,11 @@
 <div class="container">
   <h1>Le test</h1>
   <%= @card. question %>
+  <br>
 
-    <p>Voir la réponse</p>
+      <br>
+      <label for="answer"><span>Voir la réponse</span></label>
+      <input type=radio id="answer" name="group">
+      <span id="content"><%= @card.answer %></span>
 
 </div>
