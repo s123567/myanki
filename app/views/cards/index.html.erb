@@ -1,52 +1,56 @@
 <div class="container">
-  <div class="row">
+  <div class="panel" id="right-container">
     <h1>Index de mes cartes !</h1>
 
     <div id="tag_cloud">
       <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
-        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <%= link_to tag.name, tag_path(tag.name), class:'css_class btn-green' %>
       <% end %>
     </div>
-    <%= link_to "Toutes mes cartes", cards_path %>
-
-    <% if @cards %>
-      <% @cards.each do |card| %>
-        <p>Q: <%= card.question %></p>
-        <p>A: <%= card.answer %></p>
-        <p><%= card.frequence %></p>
-        <p><%= raw card.tag_list.map { |t| link_to t, tag_path(t) }.join (', ' ) if card.tag_list != [] %></p>
-        <%= link_to ">>", edit_card_path(card), class:''%>
-        <%= link_to "X", card_path(card), method: :delete, class:''%>
-      <% end %>
-    <% end %>
-    
     <br>
+    <%= link_to "Toutes mes cartes", cards_path, class:'btn-blue' %>
 
-  </div>
+    <div class:"">
+      <% if @cards %>
+      <table class="table">
+        <tr>
+          <th class="">Question</th>
+          <th class="">Réponse</th>
+          <th class="">Catégorie</th>
+          <th class="">Récurrence</th>
+          <th class="">Suppr</th>
+          <th class="">Edit</th>
+        </tr>
+        <tr>
+          <% @cards.each do |card| %>
+          <td class=""><%= card.question %></td>
+          <td class=""><%= card.answer %></td>
+          <td class=""><%= raw card.tag_list.map { |t| link_to t, tag_path(t) }.join (', ' ) if card.tag_list != [] %></td>
+          <td class=""><%= card.frequence %></td>
+          <td class=""><%= link_to ">>", edit_card_path(card), class:''%></td>
+          <td class=""><%= link_to "X", card_path(card), method: :delete, class:''%></td>
 
-  <div>
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
+        </tr>
+        <% end %>
+      </table>
       
-      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-    </ul>
+      <% end %>
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home">...</div>
-      <div role="tabpanel" class="tab-pane" id="profile">...</div>
-      <div role="tabpanel" class="tab-pane" id="messages">...</div>
-      <div role="tabpanel" class="tab-pane" id="settings">...</div>
     </div>
   </div>
 
-  <div>
+  <div class="panel" id="left-container">
     <p><%= @cards.length %></p>
-    <%= link_to "Ajouter une carte", new_card_path, class:'btn btn-primary'%>
-    <%= link_to "Faire le test",'test', class:'btn btn-success'%>
+    <ul class="list-vertical">
+      <li><%= link_to "Ajouter une carte", new_card_path, class:'btn btn-orange'%></li>
+      <li><%= link_to "Faire le test",'test', class:'btn-green'%></li>
+    </ul>
+    
+    
+  </div>
+
+  <div class="clear">
+    
   </div>
   
 </div>
