@@ -2,13 +2,14 @@
   <div class="panel" id="right-container">
     <h1>Index de mes cartes !</h1>
 
-    <div id="tag_cloud">
+    <div id="tag_cloud" class="pull-right">
+      <%= link_to "Toutes mes cartes", cards_path, class:'btn-blue' %>
       <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
-        <%= link_to tag.name, tag_path(tag.name), class:'css_class btn-green' %>
+        <%= link_to tag.name, tag_path(tag.name), class:'css_class tag' %>
       <% end %>
     </div>
     <br>
-    <%= link_to "Toutes mes cartes", cards_path, class:'btn-blue' %>
+    
 
     <div class:"">
       <% if @cards %>
