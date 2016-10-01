@@ -1,5 +1,7 @@
 class CardsController < ApplicationController
 
+  before_action :find_card, only:[:edit, :destroy, :show, :update]
+
   def new
     @card = Card.new
   end
@@ -33,18 +35,27 @@ class CardsController < ApplicationController
   end
 
   def update
-    
+    if @card.update_attributes(card_params)
+      redirect_to cards_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @card.destroy
+    redirect_to cards_path
     
   end
 
   private
 
   def card_params
-    params.require(:card).permit(:question, :answer)
-    
+    params.require(:card).permit(:question, :answer, :frequence)
+  end
+
+  def find_card
+    @card = Card.find(params[:id])
   end
 
 end
