@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-
+  require 'will_paginate/array' 
   before_action :find_card, only:[:edit, :destroy, :show, :update]
 
   def new
@@ -35,6 +35,17 @@ class CardsController < ApplicationController
   def test_tag
     @cards = Card.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 1)
     @card = @cards.sample
+  end
+
+  def test_frequence
+    @cards = Card.all.paginate(page: params[:page], per_page: 1)
+    if params[:filter]
+    @cards = Card.select { |card| card[:frequence] == params[:filter] }
+    @cards = @cards.paginate(page: params[:page], per_page: 1)
+  end
+    @card = @cards.sample
+
+
   end
 
 

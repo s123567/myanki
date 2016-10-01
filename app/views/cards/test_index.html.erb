@@ -8,7 +8,7 @@
   
   <h1>Test par récurrence</h1>
     <% Card.select("DISTINCT(FREQUENCE)").each do |card| %>
-    <%= card.frequence  %>
+    <%= link_to card.frequence, test_frequence_path(card.frequence)  %>
     <% end %>
   <% end %>
 
