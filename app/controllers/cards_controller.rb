@@ -13,7 +13,6 @@ class CardsController < ApplicationController
       redirect_to cards_path
     else
       render 'new'
-      
     end
   end
 
@@ -25,13 +24,26 @@ class CardsController < ApplicationController
     end
   end
 
+  def test_index
+    if params[:tag]
+      @cards = Card.tagged_with(params[:tag])
+      else
+        @cards = Card.all
+    end
+
+  end
+
   def test
-    @cards = Card.paginate(page: params[:page], per_page: 1)
-    @card = @cards.sample
+    if params[:tag]
+      @cards = Card.tagged_with(params[:tag])
+    else
+      @cards = Card.paginate(page: params[:page], per_page: 1)
+      @card = @cards.sample  
+    end
   end
 
   def show
-    @card = Card.find(params[:id])
+
   end
 
   def edit
