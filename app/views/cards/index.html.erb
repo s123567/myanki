@@ -5,6 +5,7 @@
       <% @cards.each do |card| %>
         <p>Q: <%= card.question %></p>
         <p>A: <%= card.answer %></p>
+        <p><%= card.tag_list if card.tag_list != [] %></p>
         <%= link_to ">>", edit_card_path(card), class:''%>
         <%= link_to "X", card_path(card), method: :delete, class:''%>
       <% end %>

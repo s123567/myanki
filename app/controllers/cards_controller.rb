@@ -19,6 +19,7 @@ class CardsController < ApplicationController
 
   def index
     @cards = Card.all
+    
   end
 
   def test
@@ -51,7 +52,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:question, :answer, :frequence)
+    params.require(:card).permit(:question, :answer, :frequence, :tag_list)
   end
 
   def find_card

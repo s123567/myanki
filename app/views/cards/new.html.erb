@@ -5,6 +5,10 @@
       <%= simple_form_for @card do |f| %>
         <%= f.input :question %>
         <%= f.input :answer %>
+
+            <%= f.label :tags, "Tags (separated by commas)" %>
+            <%= f.text_field :tag_list, class: "form-control" %>
+
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>
         <%= f.button :submit, class:"btn btn-primary" %>
       <% end %>    
