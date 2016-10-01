@@ -18,8 +18,11 @@ class CardsController < ApplicationController
   end
 
   def index
-    @cards = Card.all
-    
+    if params[:tag]
+      @cards = Card.tagged_with(params[:tag])
+      else
+        @cards = Card.all
+    end
   end
 
   def test
