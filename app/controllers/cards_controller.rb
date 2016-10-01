@@ -30,8 +30,13 @@ class CardsController < ApplicationController
       else
         @cards = Card.all
     end
-
   end
+
+  def test_tag
+    @cards = Card.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 1)
+    @card = @cards.sample
+  end
+
 
   def test
     if params[:tag]

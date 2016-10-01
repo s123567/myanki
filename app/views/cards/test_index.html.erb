@@ -3,12 +3,12 @@
   <h1>test par catégorie</h1>
     
       <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
-        <%= link_to tag.name, tag_path(tag.name), class:'css_class tag' %>
+        <%= link_to tag.name, test_tag_path(tag.name), class:'css_class tag' %>
       <% end %>
   
   <h1>Test par récurrence</h1>
-    <% Card.select("DISTINCT(FREQUENCE)").each do |p| %>
-    <%= p.frequence %>
+    <% Card.select("DISTINCT(FREQUENCE)").each do |card| %>
+    <%= card.frequence  %>
     <% end %>
   <% end %>
 
