@@ -1,54 +1,47 @@
 <div class="container">
   <div class="panel" id="right-container">
-    <h1>Index de mes cartes !</h1>
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1">
+        <h1>MES CARTES</h1>
 
-    <div id="tag_cloud" class="pull-right">
-      <%= link_to "Toutes mes cartes", cards_path, class:'btn-blue' %>
-      <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
-        <%= link_to tag.name, tag_path(tag.name), class:'css_class tag' %>
-      <% end %>
-    </div>
-    <br>
-    
-
-    <div class:"">
-      <% if @cards %>
-      <table class="table">
-        <tr>
-          <th class="">Question</th>
-          <th class="">Réponse</th>
-          <th class="">Catégorie</th>
-          <th class="">Récurrence</th>
-          <th class="">Suppr</th>
-          <th class="">Edit</th>
-        </tr>
-        <tr>
-          <% @cards.each do |card| %>
-          <td class=""><%= card.question %></td>
-          <td class=""><%= card.answer %></td>
-          <td class=""><%= raw card.tag_list.map { |t| link_to t, tag_path(t) }.join (', ' ) if card.tag_list != [] %></td>
-          <td class=""><%= card.frequence %></td>
-          <td class=""><%= link_to ">>", edit_card_path(card), class:''%></td>
-          <td class=""><%= link_to "X", card_path(card), method: :delete, class:''%></td>
-
-        </tr>
-
-        <% end %>
-      </table>
-      
-      <% end %>
-       
-    </div>
-
-  </div>
+        <div id="tag_cloud" class="col-lg-10 col-lg-offset-1">
+          <%= link_to "Toutes mes cartes", cards_path, class:'btn-blue' %>
+          <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class:'index-tag css_class' %>
+          <% end %>
+        </div>
+        <br>
+          <% if @cards %>
+          <table class="table">
+            <tr>
+              <% @cards.each do |card| %>
+              <td class=""><%= card.question %></td>
+              <td class=""><%= card.answer %></td>
+              <td class=""><%= raw card.tag_list.map { |t| link_to t, tag_path(t) }.join (', ' ) if card.tag_list != [] %></td>
+              <td class=""><%= card.frequence %></td>
+              <td class=""><%= link_to edit_card_path(card),class:'' do %><span class="fa fa-pencil fa-1x"></span> <% end %></td>
+              <td class=""><%= link_to card_path(card), method: :delete,class:'' do %><span class="fa fa-trash-o fa-1x"></span> <% end %></td>
+            </tr>
+            <% end %>
+          </table>
+          <% end %>
+      </div>
+    </div> <!-- row -->
+  </div> <!-- panel right-cntr -->
 
   <div class="panel" id="left-container">
-    <p><%= @cards.length %></p>
-    <ul class="list-vertical">
-      <li><%= link_to "Ajouter une carte", new_card_path, class:'btn btn-orange'%></li>
-      <li><%= link_to "Faire le test",'test', class:'btn-green'%></li>
-      <li><%= link_to "Faire UN test",'test_index', class:'btn-green'%></li>
-    </ul>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="list-vertical">
+          <li><%= link_to new_card_path,class:'btn-orange' do %><span class="fa fa-plus-square fa-1x"></span> Carte <% end %></li>
+          <li><%= link_to '/test_index',class:'btn-green' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
+          <li><i class="fa fa-battery-full" aria-hidden="true"></i>
+            <%= @cards.length %> cartes !</li>
+        </ul>    
+      </div>
+      
+    </div>
+    
     
     
   </div>

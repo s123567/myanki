@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1>Créer une nouvelle carte</h1>
+      <h1 class="text-center">Nouvelle carte</h1>
       <%= simple_form_for @card do |f| %>
         <%= f.input :question %>
         <%= f.input :answer %>
@@ -10,8 +10,12 @@
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>
         <%= f.button :submit, class:"btn btn-primary" %>
       <% end %>    
+    <div class="text-center space-updown">
+          <%= link_to cards_path,class:'btn-green' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
+
+        </div>
     </div>  
   </div>
-  
+   
   
 </div>

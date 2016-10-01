@@ -25,6 +25,11 @@
   box-shadow: 1px 1px 3px rgb(25, 29, 33);
 }
 
+.space-updown {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .btn-blue {
   border-radius: 4px;
   border: 1px solid #59C8E2;
@@ -34,13 +39,56 @@
 
 }
 
+.btn-blue-small {
+  border-radius: 4px;
+  border: 1px solid #59C8E2;
+  color: #59C8E2;
+  padding: 2px 2px;
+  margin: 0px 5px;
+  background: transparent !important;
+  font-size: 1em
+
+
+}
+.index-questions {
+
+}
+
+.index-answers {
+
+}
+
+.index-tag {
+  font-size: 1.1em;
+  color: white;
+}
+
+.test-index-panel {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.test-index-panel li {
+  display: inline;
+  padding: 5px 5px;
+  margin: 5px 5px;
+}
 .btn-orange {
   border-radius: 4px;
   border: 1px solid #FBB31B;
   color: #FBB31B;
   padding: 10px 15px;
   background: transparent !important;
+}
 
+.btn-orange-small {
+  border-radius: 4px;
+  border: 1px solid #FBB31B;
+  color: #FBB31B;
+  padding: 2px 2px;
+  margin: 0px 5px;
+  background: transparent !important;
+  font-size: 1em
 }
 
 .btn-green {
@@ -50,6 +98,17 @@
   padding: 10px 15px;
   background: transparent !important;
 }
+
+.btn-green-small {
+  color: #26A65B;
+  border-radius: 4px;
+  border: 1px solid #26A65B;
+  padding: 2px 2px;
+  margin: 0px 5px;
+  background: transparent !important;
+  font-size: 1em
+}
+
 .list-vertical {
 
   list-style: none;

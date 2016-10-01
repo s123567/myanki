@@ -1,15 +1,38 @@
 <div class="container">
   <% if @cards %>
-  <h1>test par catégorie</h1>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+      <div id="test-index">
+        <h1>Se tester </h1>
+        <div class="panel">
+          <h2>Par catégorie</h2>
+            <div class="test-index-panel">
+                  <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
+                    <%= link_to test_tag_path(tag.name), class:'btn-blue-small' do %><span class="fa fa-tag fa-1x"></span> <%= tag.name %> <% end %> 
+                  <% end %>    
+            </div>
+            
+        </div>
+          
+        <div class="panel">
+          <h2>Par récurrence</h2>
+          <div class="test-index-panel">
+            <% Card.select("DISTINCT(FREQUENCE)").each do |card| %>
+            <%= link_to test_frequence_path(card.frequence),class:'btn-orange-small' do %><span class="fa fa-calendar fa-1x"></span> <%= card.frequence %> <% end %>
+            <% end %>  
+          </div>
+            
+        </div>
+        
+      
+    </div>
+    <div class="text-center space-updown">
+      <%= link_to cards_path,class:'btn-green' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
+
+    </div>
+  </div>
     
-      <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
-        <%= link_to tag.name, test_tag_path(tag.name), class:'css_class tag' %>
-      <% end %>
-  
-  <h1>Test par récurrence</h1>
-    <% Card.select("DISTINCT(FREQUENCE)").each do |card| %>
-    <%= link_to card.frequence, test_frequence_path(card.frequence)  %>
-    <% end %>
+  </div>
   <% end %>
 
 </div>
