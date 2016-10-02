@@ -16,7 +16,13 @@
             <tr>
               <% @cards.each do |card| %>
               <td class=""><%= card.question %></td>
-              <td class=""><%= card.answer %></td>
+              <td class="">
+                <% if card.picture? %>
+                  <%= image_tag(card.picture.url, :size => "60x60") %>
+                  <% else %>
+                  <%= card.answer %>
+                <% end %>
+                </td>
               <td class=""><%= raw card.tag_list.map { |t| link_to t, tag_path(t) }.join (', ' ) if card.tag_list != [] %></td>
               <td class=""><%= card.frequence %></td>
               <td class=""><%= link_to edit_card_path(card),class:'' do %><span class="fa fa-pencil fa-1x"></span> <% end %></td>

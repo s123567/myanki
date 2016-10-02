@@ -13,6 +13,10 @@ gem 'will_paginate-bootstrap'
 
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 
+gem 'carrierwave',             '0.11.2'
+gem 'mini_magick',             '4.5.1'
+gem 'fog',                     '1.38.0'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'

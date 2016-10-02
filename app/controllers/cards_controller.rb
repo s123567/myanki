@@ -4,6 +4,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+
   end
 
   def create
@@ -81,7 +82,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:question, :answer, :frequence, :tag_list)
+    params.require(:card).permit(:question, :answer, :frequence, :tag_list, :picture)
   end
 
   def find_card
