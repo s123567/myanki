@@ -1,79 +1,98 @@
 <%= render 'shared/navbar-mobile' %>
 <div class="container">
-  
-  <div class="panel" id="left-container">
-    <div class="row">
-      <div class="col-xs-12">
-        <ul class="list-vertical">
-          <li><%= link_to new_card_path,class:'btn-orange all-btn' do %><span class="fa fa-plus-square fa-1x"></span> Carte <% end %></li>
-          <li><%= link_to '/test_index',class:'btn-green all-btn' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
-          <li><i class="fa fa-battery-full" aria-hidden="true"></i>
-            <%= @cards.length %> cartes !</li>
-        </ul>    
-      </div>  
-    </div>
-    
+
+
+<div id="title" class="text-center"><h1>My ANKI</h1></div>
+
+<div class="panel hidden-xs" id="left-container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <ul class="list-vertical">
+        <li><%= link_to new_card_path,class:'btn-orange all-btn' do %><span class="fa fa-plus-square fa-1x"></span> Carte <% end %></li>
+        <li><%= link_to '/test_index',class:'btn-green all-btn' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
+        <li><i class="fa fa-battery-full" aria-hidden="true"></i>
+          <%= @cards.length %> cartes !</li>
+      </ul>    
+    </div>  
   </div>
-
-  <div class="panel" id="right-container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h1>MES CARTES</h1>
-        <div>
-          <%= link_to "Toutes mes cartes", cards_path, class:'btn-blue' %>
-        </div>
-        <div id="tag_cloud" class="col-lg-10 col-lg-offset-1">
-          <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), class:'index-tag css_class' %>
-          <% end %>
-        </div>
-        <br>
-          <% if @cards %>
-          <table class="table hidden-xs">
-            <tr>
-              <% @cards.each do |card| %>
-              <td class=""><%= card.question %></td>
-              <td class="">
-                <% if card.picture? %>
-                  <%= image_tag(card.picture.url, :size => "60x60") %>
-                  <% else %>
-                  <%= card.answer %>
-                <% end %>
-                </td>
-              <td class=""><%= raw card.tag_list.map { |t| link_to t, tag_path(t) }.join (', ' ) if card.tag_list != [] %></td>
-              <td class=""><%= card.frequence %></td>
-              <td class=""><%= link_to edit_card_path(card),class:'' do %><span class="fa fa-pencil fa-1x"></span> <% end %></td>
-              <td class=""><%= link_to card_path(card), method: :delete,class:'' do %><span class="fa fa-trash-o fa-1x"></span> <% end %></td>
-            </tr>
-            <% end %>
-          </table>
-          <% end %>
-
-          <% if @cards %>
-          <div class="visible-xs">
-
-              <% @cards.each do |card| %>
-
-              <div class="controls space-updown">
-                <h3><i class="fa fa-question-circle" aria-hidden="true"></i><%= card.question %></h3>
-                <div class="controls-left pull-left btn-orange-small">
-                  <h4><span class="fa fa-tag fa-1x"></span><%= raw card.tag_list.map { |t| link_to t, tag_path(t), class:'' }.join (', ' ) if card.tag_list != [] %>    <span class="fa fa-calendar fa-1x"></span><%= card.frequence %></h4>
-                  <p>
-                </div>
-                <div class="controls-right pull-right">
-                  <%= link_to edit_card_path(card),class:'space-right-left' do %><span class="fa fa-pencil fa-2x"></span> <% end %>
-                  <%= link_to card_path(card), method: :delete,class:'space-right-left' do %><span class="fa fa-trash-o fa-2x"></span> <% end %></p>
-                </div>
-              </div>
+</div> <!-- id left-container -->
+  
+<div class="panel hidden-xs" id="right-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="card-cat">
+          <div class="btn-blue cat-block">
+            <i class="fa fa-circle-thin" aria-hidden="true"></i>
+            <%= link_to "Toutes", cards_path, class:'' %>
+          </div>  
+          <div id="tag_cloud" class="col-lg-10 col-lg-offset-1">
+            <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+            <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
+              <%= link_to tag.name, tag_path(tag.name), class:'index-tag css_class btn-orange-small cat-block' %>
             <% end %>
           </div>
-          <% end %>
-      </div>
-    </div> <!-- row -->
-  </div> <!-- panel right-cntr -->
+      </div> <!-- card-cat -->
+    </div>
+      <div class="col-xs-12">
+        <% if @cards %>
+        <div class="hidden-xs">
 
-  <div class="clear">
+              <% @cards.each do |card| %>
+              <div class="row question-block">
+                <div class="col-sm-8 question-details">
+                    <h4><i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                    <%= card.question %></h4>
+                    <span class="index-tag"><%= raw card.tag_list.map { |t| t }.join (', ' )if card.tag_list != [] %></span>
+                    <span class="index-tag"><%= card.frequence %></span>
+                </div>
+                <div class="col-sm-4 index-icons">
+                  <div class="question-ctrls pull-right">
+                    <%= link_to edit_card_path(card),class:'modify space-right-left-sm' do %><span class="fa fa-pencil fa-2x modify"></span><% end %>
+                    <%= link_to card_path(card), method: :delete,class:'delete space-right-left-sm' do %><span class="fa fa-trash-o fa-2x delete"></span> <% end %>  
+                  </div>    
+                </div>
+              </div>
+              <hr>
+            <% end %> <!-- each do card -->
+      </div> <!-- hiden xs -->
+        </div> <!-- col xs 12 -->
+        <% end %>
+    </div>
+  </div> <!-- row -->
+</div> <!-- panel right-cntr -->
+
+  <div class="clear hidden-xs">
     
   </div>
   
+
+
+  <% if @cards %>
+  <div class="visible-xs">
+      
+        <% @cards.each do |card| %>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="space-updown space-left-right panel-mobile">
+              <h3><i class="fa fa-question-circle space-right-left-sm" aria-hidden="true"></i><%= card.question %></h3>
+            </div> <!-- panel-mobile -->
+
+            <div class="controls">
+              <div class="controls-left pull-left btn-orange-small">
+                <h4><span class="fa fa-tag fa-1x space-right-left-sm"></span><%= raw card.tag_list.map { |t| t }.join (', ' ) if card.tag_list != [] %><span class="fa fa-calendar fa-1x space-right-left-sm"></span><%= card.frequence %></h4>
+              </div>
+              <div class="controls-right pull-right">
+                <%= link_to edit_card_path(card),class:'space-right-left' do %><span class="fa fa-pencil fa-2x modify"></span> <% end %>
+                <%= link_to card_path(card), method: :delete,class:'space-right-left' do %><span class="fa fa-trash-o fa-2x delete"></span> <% end %>
+              </div>  
+            </div> <!-- controls -->
+          </div>
+          
+        <% end %>
+      </div>
+      
+    
+  </div> <!-- visible xs -->
+  <% end %>
+
 </div>
