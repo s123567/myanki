@@ -8,7 +8,13 @@
       <br>
           <label for="answer"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></label>
           <input type=radio id="answer" name="group">
-          <span id="content"><%= @card.answer %></span>
+          <span id="content">
+            <% if @card.picture? %>
+              <%= image_tag @card.picture.url %>
+              <% else %>
+              <%= @card.answer %>
+            <% end %>
+          </span>
           <br>
 
           <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>    

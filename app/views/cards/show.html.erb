@@ -1,0 +1,8 @@
+<div class="container">
+  <h2><%=@card.question %></h2>
+  <% if @card.picture? %>
+    <%= image_tag @card.picture.url %>
+    <% else %>
+    <p><%= @card.answer %></p>
+  <%end %>
+</div>

@@ -10,27 +10,19 @@
       <ul class="list-vertical">
         <li><%= link_to new_card_path,class:'btn-orange all-btn' do %><span class="fa fa-plus-square fa-1x"></span> Carte <% end %></li>
         <li><%= link_to '/test_index',class:'btn-green all-btn' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
+
         <li><i class="fa fa-battery-full" aria-hidden="true"></i>
           <%= @cards.length %> cartes !</li>
-          <div class="btn-blue">
-            <i class="fa fa-circle" aria-hidden="true"></i>
-            <%= link_to "Toutes", cards_path, class:'' %>
-          </div>  
-
             <div id="cat-block">
+              <h4>Mes catégories</h4>
             <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
             <li><i class="fa fa-puzzle-piece" aria-hidden="true"></i><%= link_to tag.name, tag_path(tag.name), class:'index-tag css_class all-btn cat-block' %>
             </li>
+            <hr class="hr-red text-center">
             <% end %>  
             </div>
-            
-
 
       </ul>
-
-
-          
-
     </div>  
   </div>
 </div> <!-- id left-container -->
@@ -48,7 +40,7 @@
               <div class="row question-block">
                 <div class="col-sm-8 question-details">
                     <h4><i class="fa fa-question-circle-o" aria-hidden="true"></i>
-                    <%= card.question %></h4>
+                    <%= link_to card.question, card_path(card) %></h4>
                     <span class="index-tag"><%= raw card.tag_list.map { |t| t }.join (', ' )if card.tag_list != [] %></span>
                     <span class="index-tag"><%= card.frequence %></span>
                 </div>

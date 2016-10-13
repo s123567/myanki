@@ -93,12 +93,13 @@ h1, h2, h3 {
 }
 
 a {
-  color: #216975;
+  color: #FBB31B;
   text-decoration: none !important;
   &:hover {
     color: #00FF2D !important;
   }
 }
+
 
 input {
     display:none;
@@ -151,7 +152,6 @@ input {
   padding: 2px 0 !important;
 }
 
-
 .try {
   margin: auto 0;
 }
@@ -164,9 +164,14 @@ input {
 }
 
 hr {
-  border-top: 1px solid #216975 !important;
+  border-top: 1px solid #216975 ;
   width: 80%;
+}
 
+.hr-red {
+  border-top: 1px solid #D30061;
+  margin: 3px auto;
+  width: 10%;
 }
 
 .index-tag {
