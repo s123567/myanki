@@ -1,5 +1,5 @@
 <%= render 'shared/navbar-mobile' %>
-<div class="container">
+<div class="container" id="home-index">
 
 
 <div id="title" class="text-center"><h1>My ANKI</h1></div>
@@ -12,7 +12,25 @@
         <li><%= link_to '/test_index',class:'btn-green all-btn' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
         <li><i class="fa fa-battery-full" aria-hidden="true"></i>
           <%= @cards.length %> cartes !</li>
-      </ul>    
+          <div class="btn-blue">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            <%= link_to "Toutes", cards_path, class:'' %>
+          </div>  
+
+            <div id="cat-block">
+            <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
+            <li><i class="fa fa-puzzle-piece" aria-hidden="true"></i><%= link_to tag.name, tag_path(tag.name), class:'index-tag css_class all-btn cat-block' %>
+            </li>
+            <% end %>  
+            </div>
+            
+
+
+      </ul>
+
+
+          
+
     </div>  
   </div>
 </div> <!-- id left-container -->
@@ -20,18 +38,7 @@
 <div class="panel hidden-xs" id="right-container">
   <div class="row">
     <div class="col-xs-12">
-      <div id="card-cat">
-          <div class="btn-blue cat-block">
-            <i class="fa fa-circle" aria-hidden="true"></i>
-            <%= link_to "Toutes", cards_path, class:'' %>
-          </div>  
-          <div id="tag_cloud" class="col-lg-10 col-lg-offset-1">
-            <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
-            <% tag_cloud Card.tag_counts, %w[s m l] do |tag, css_class| %>
-              <%= link_to tag.name, tag_path(tag.name), class:'index-tag css_class btn-orange-small cat-block' %>
-            <% end %>
-          </div>
-      </div> <!-- card-cat -->
+       <!-- card-cat -->
     </div>
       <div class="col-xs-12">
         <% if @cards %>
@@ -67,32 +74,6 @@
   
 
 
-  <% if @cards %>
-  <div class="visible-xs">
-      
-        <% @cards.each do |card| %>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="space-updown space-left-right panel-mobile">
-              <h3><i class="fa fa-question-circle space-right-left-sm" aria-hidden="true"></i><%= card.question %></h3>
-            </div> <!-- panel-mobile -->
-
-            <div class="controls">
-              <div class="controls-left pull-left btn-orange-small">
-                <h4><span class="fa fa-tag fa-1x space-right-left-sm"></span><%= raw card.tag_list.map { |t| t }.join (', ' ) if card.tag_list != [] %><span class="fa fa-calendar fa-1x space-right-left-sm"></span><%= card.frequence %></h4>
-              </div>
-              <div class="controls-right pull-right">
-                <%= link_to edit_card_path(card),class:'space-right-left' do %><span class="fa fa-pencil fa-2x modify"></span> <% end %>
-                <%= link_to card_path(card), method: :delete,class:'space-right-left' do %><span class="fa fa-trash-o fa-2x delete"></span> <% end %>
-              </div>  
-            </div> <!-- controls -->
-          </div>
-          
-        <% end %>
-      </div>
-      
-    
-  </div> <!-- visible xs -->
-  <% end %>
+  <%= render 'shared/phone_layout' %>
 
 </div>

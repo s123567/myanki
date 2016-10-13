@@ -1,0 +1,27 @@
+<% if @cards %>
+  <div class="visible-xs">
+      
+        
+        <div class="row">
+          <% @cards.each do |card| %>
+          <div class="col-xs-12">
+            <div class="space-updown space-left-right panel-mobile">
+              <h3><i class="fa fa-question-circle space-right-left-sm" aria-hidden="true"></i><%= card.question %></h3>
+            </div> <!-- panel-mobile -->
+
+            <div class="controls center-block">
+              <div class="controls-left pull-left btn-orange-small">
+                <h4><span class="fa fa-tag fa-1x space-right-left-sm"></span><%= raw card.tag_list.map { |t| t }.join (', ' ) if card.tag_list != [] %><span class="fa fa-calendar fa-1x space-right-left-sm"></span><%= card.frequence %></h4>
+              </div>
+              <div class="controls-right pull-right">
+                <%= link_to edit_card_path(card),class:'space-right-left' do %><span class="fa fa-pencil fa-2x modify"></span> <% end %>
+                <%= link_to card_path(card), method: :delete,class:'space-right-left' do %><span class="fa fa-trash-o fa-2x delete"></span> <% end %>
+              </div>  
+            </div> <!-- controls -->
+          </div>
+        <% end %>
+      </div>
+      
+    
+  </div> <!-- visible xs -->
+  <% end %>

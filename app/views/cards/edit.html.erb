@@ -7,6 +7,9 @@
         <%= f.input :answer %>
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
         <%= f.label :tags, "Tags (separated by commas)" %>
+        <p>Déjà créés: <% Card.tag_counts.each do |tag| %>
+        <%= tag.name %>
+        <% end %></p>
         <%= f.text_field :tag_list, class: "form-control" %>
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>
         <%= f.button :submit, class:"btn btn-primary" %>

@@ -31,6 +31,7 @@ class CardsController < ApplicationController
       @cards = Card.tagged_with(params[:tag])
       @cards = @cards.paginate(page: params[:page], per_page: 5)
     end
+
   end
 
   def test_tag
