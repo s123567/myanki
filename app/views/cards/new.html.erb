@@ -7,10 +7,10 @@
         <%= f.input :answer %>
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
         <%= f.label :tag %>
-        <p>Déjà créés:</p>
-        <% Card.tag_counts.each do |tag| %>
+        <p>Déjà créés: <% Card.tag_counts.each do |tag| %>
         <%= tag.name %>
-        <% end %>
+        <% end %></p>
+        
           
         <%= f.text_field :tag_list, class: "form-control" %>
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>

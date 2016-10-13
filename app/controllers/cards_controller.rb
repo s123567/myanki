@@ -26,10 +26,10 @@ class CardsController < ApplicationController
   end
 
   def test_index
+    @cards = Card.all.paginate(page: params[:page], per_page: 5)
     if params[:tag]
       @cards = Card.tagged_with(params[:tag])
-      else
-        @cards = Card.all
+      @cards = @cards.paginate(page: params[:page], per_page: 5)
     end
   end
 
