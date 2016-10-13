@@ -8,6 +8,8 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 
+gem 'devise', '~> 4.2'
+
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'will_paginate-bootstrap'
 

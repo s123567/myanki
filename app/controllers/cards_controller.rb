@@ -9,6 +9,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
+    @card.user = current_user
     if @card.save
       flash[:success] = "Carte créée"
       redirect_to cards_path
@@ -19,30 +20,30 @@ class CardsController < ApplicationController
 
   def index
     if params[:tag]
-      @cards = Card.tagged_with(params[:tag])
+      @cards = current_user.cards.tagged_with(params[:tag])
       else
-        @cards = Card.all
+        @cards = current_user.cards
     end
   end
 
   def test_index
-    @cards = Card.all.paginate(page: params[:page], per_page: 5)
+    @cards = current_user.cards.paginate(page: params[:page], per_page: 5)
     if params[:tag]
-      @cards = Card.tagged_with(params[:tag])
+      @cards = current_user.cards.tagged_with(params[:tag])
       @cards = @cards.paginate(page: params[:page], per_page: 5)
     end
 
   end
 
   def test_tag
-    @cards = Card.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 1)
+    @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 1)
     @card = @cards.sample
   end
 
   def test_frequence
-    @cards = Card.all.paginate(page: params[:page], per_page: 1)
+    @cards = current_user.cards.paginate(page: params[:page], per_page: 1)
     if params[:filter]
-    @cards = Card.select { |card| card[:frequence] == params[:filter] }
+    @cards = current_user.cards.select { |card| card[:frequence] == params[:filter] }
     @cards = @cards.paginate(page: params[:page], per_page: 1)
   end
     @card = @cards.sample
@@ -51,9 +52,9 @@ class CardsController < ApplicationController
 
   def test
     if params[:tag]
-      @cards = Card.tagged_with(params[:tag])
+      @cards = current_user.cards.tagged_with(params[:tag])
     else
-      @cards = Card.paginate(page: params[:page], per_page: 1)
+      @cards = current_user.cards.paginate(page: params[:page], per_page: 1)
       @card = @cards.sample  
     end
   end
