@@ -1,0 +1,61 @@
+/*form style SIGN UP SIGNIN*/
+.form-style {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.border-form-div {
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+
+  background-color: #141E30; /* fallback for old browsers */
+  background-color: -webkit-linear-gradient(to left, #141E30 , #243B55); /* Chrome 10-25, Safari 5.1-6 */
+  background-color: linear-gradient(to left, #141E30 , #243B55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 1px solid #14e2d1;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+          box-shadow: 1px 1px 3px rgb(25, 29, 33);
+}
+
+.border-form-div form input {
+  background-color: transparent;
+  border: none;
+  color: #FBB31B;
+
+}
+
+.border-form-div form label {
+  font-weight: 100;
+  color: #FBB31B;
+
+}
+
+.form-title {
+  text-transform: uppercase;
+  color:#2B3243;
+
+}
+
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+#body-signin-up {
+
+background: #136a8a; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+}
+

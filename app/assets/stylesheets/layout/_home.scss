@@ -1,9 +1,11 @@
 
 .landing-page {
 
-  background: #2C3E50; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #2C3E50 , #4CA1AF); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #2C3E50 , #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  background: #136a8a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,7 +18,11 @@
 #landing {
   position: relative;
   width: 70%;
+  height : 80%;
   margin: 5% auto;
+  background: #141E30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #141E30 , #243B55); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #141E30 , #243B55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
   border-radius: 14px;
   border: 1px solid #2C3D53;
@@ -41,15 +47,26 @@
   width: 50%;
   margin: 2px auto;
   padding : 0px 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
 
 }
 .home-button {
   border-radius: 20px;
   padding: 3px 6px;
+  font-weight: 300;
+  &:hover {
+    background-color: #14e2d1;
+    color: #2C3D53;
+    box-shadow: 5px 3px 8px rgb(25, 29, 33);
+  }
 }
 
-.signup {
-  background-color: #14e2d1;
-  color: #2C3D53;
-  box-shadow: 5px 3px 8px rgb(25, 29, 33);
+.circular {
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px; 
 }

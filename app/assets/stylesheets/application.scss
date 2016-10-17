@@ -17,6 +17,7 @@
 
 @import 'https://fonts.googleapis.com/css?family=Catamaran:300,400,700';
 @import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,700';
 
 
 #title {
@@ -69,8 +70,9 @@
 body {
   background-color: #2B3243;
   color: #14e2d1;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.7em;
+  font-weight: 400;
   }
 
 h1 {
@@ -89,23 +91,32 @@ h3 {
 }
 
 h1, h2, h3 {
-  font-family: 'Catamaran', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 a {
   color: #FBB31B;
   text-decoration: none !important;
   &:hover {
-    color: #00FF2D !important;
+    
   }
 }
-
 
 input {
     display:none;
 }
 
+hr {
+  border-top: 1px solid #216975 ;
+  width: 80%;
+}
 
+.hr-red {
+  border-top: 1px solid #D30061;
+  margin: 3px auto;
+  width: 10%;
+}
 /*SPACE*/
 
 .space-updown {
@@ -163,16 +174,7 @@ input {
 
 }
 
-hr {
-  border-top: 1px solid #216975 ;
-  width: 80%;
-}
 
-.hr-red {
-  border-top: 1px solid #D30061;
-  margin: 3px auto;
-  width: 10%;
-}
 
 .index-tag {
   font-size: 0.9em;
@@ -185,6 +187,7 @@ hr {
   background: #242A3C !important;
 
 }
+
 
 
 

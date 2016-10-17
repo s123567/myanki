@@ -1,23 +1,15 @@
 <body class="landing-page">
   <div class="container" id="landing">
       <div id="hero">
-        <img src="http://placehold.it/400x400">
+        <%= image_tag "mars_attacks.jpg", size:"400x400", class:'circular' %>
       </div>
       <div id="welcome-form" class="home-white-form">
-        <h2>Sign up</h2>
-        <h3>Question</h3>
-        <p>réponse</p>
-        <hr>
-        <h3>Question</h3>
-        <p>réponse</p>
-        <hr>
-        <h3>Question</h3>
-        <p>réponse</p>
-        <hr>
-      <div class="home-buttons text-center">
-        <h4><%= link_to 'Inscription', new_user_registration_path, class:'home-button signup' %>
-        <%= link_to 'Connexion', new_user_session_path%></h4>
-      </div>
+        <div class="home-buttons text-center">
+            <h4><%= link_to 'Inscription', new_user_registration_path, class:'home-button signup' %></h4>
+          <hr>
+            <h4><%= link_to 'Connexion', new_user_session_path, class:'home-button' %></h4>
+        </div>
+          
         
       </div>
   </div>
