@@ -4,6 +4,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
+    @cards = current_user.cards
 
   end
 

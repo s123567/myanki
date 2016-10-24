@@ -7,7 +7,7 @@
         <%= f.input :answer %>
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
         <%= f.label :tag %>
-        <p>Déjà créés: <% Card.tag_counts.each do |tag| %>
+        <p>Déjà créés: <% @cards.tag_counts.each do |tag| %>
         <%= tag.name %>
         <% end %></p>
         
