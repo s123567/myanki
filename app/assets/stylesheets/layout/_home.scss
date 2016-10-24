@@ -5,7 +5,6 @@
   background: #136a8a; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -13,13 +12,14 @@
   height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items:center;
 }
 
 #landing {
   position: relative;
   width: 70%;
   height : 80%;
-  margin: 5% auto;
   background: #141E30; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #141E30 , #243B55); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #141E30 , #243B55); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -52,7 +52,7 @@
   align-items:center;
 
 }
-.home-button {
+.round-green-btn {
   border-radius: 20px;
   padding: 3px 6px;
   font-weight: 300;

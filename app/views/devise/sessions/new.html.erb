@@ -15,15 +15,13 @@
               <hr>
             </div>
             <div class="text-center">
-              <p><%= f.button :submit, "Log in", class: 'btn btn-primary home-button space-updown' %></p>
+              <span><%= f.button :submit, "Connexion", class: 'btn btn-primary round-green-btn space-updown' %></span>
               <hr class='hr-red'>
               <br>
-
               <p><%= render "devise/shared/links" %></p>
-              
+              <br>
+              <p><%= link_to "Retour à l'accueil", root_path , class:'delete round-green-btn' %></p>
             </div>
-              
-
           <% end %>  
         </div>
 
