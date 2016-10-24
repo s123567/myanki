@@ -117,6 +117,8 @@ hr {
   margin: 3px auto;
   width: 10%;
 }
+
+img {max-width:100%;}
 /*SPACE*/
 
 .space-updown {
@@ -232,6 +234,24 @@ input#answer:checked ~ span#content {
 
 /* Extra Small */
 @media(max-width:767px){
+
+  /*Home page*/
+  #landing {
+    flex-direction: column;
+    flex-flow: column wrap;
+    justify-content: center;
+
+
+  }
+
+  #hero {
+    padding-top: 2em;
+  }
+
+  .home-buttons, .home-button {
+    font-size: 0.75em
+  }
+
   #left-container {
     float: none;
     display: inline;
@@ -253,7 +273,23 @@ input#answer:checked ~ span#content {
 }
 
 /* Small */
-@media(min-width:768px) and (max-width:991px){}
+@media(min-width:768px) and (max-width:991px){
+  #landing {
+    flex-direction: column;
+    flex-flow: column wrap;
+    justify-content: center;
+
+  }
+
+  .home-buttons , .home-button {
+    font-size: 0.75em
+  }
+
+  #hero {
+    padding-top: 2em;
+
+  }
+}
 
 /* Medium */
 @media(min-width:992px) and (max-width:1199px){}

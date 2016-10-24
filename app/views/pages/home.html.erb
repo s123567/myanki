@@ -1,17 +1,28 @@
 <body class="landing-page">
   <div class="container" id="landing">
-      <div id="hero">
-        <%= image_tag "mars_attacks.jpg", size:"400x400", class:'circular' %>
-      </div>
-      <div id="welcome-form" class="home-white-form">
-        <div class="home-buttons text-center">
-            <h4><%= link_to 'Inscription', new_user_registration_path, class:'home-button signup' %></h4>
-          <hr>
-            <h4><%= link_to 'Connexion', new_user_session_path, class:'home-button' %></h4>
-        </div>
+
+
+        <div id="hero" class="center-block">
+          <%= image_tag "brain-puzzle.jpg", size:"300x300", class:'img-circle img-responsive' %>
+        </div>  
+
+
+        <div id="welcome-form" class="home-white-form">
+          <div class="home-buttons text-center">
+              <h4><%= link_to 'Inscription', new_user_registration_path, class:'home-button signup' %></h4>
+            <hr>
+              <h4><%= link_to 'Connexion', new_user_session_path, class:'home-button' %></h4>
+              <hr>
+              <p><%= link_to 'Plus de détails sur ANKI', 'https://fr.wikipedia.org/wiki/R%C3%A9p%C3%A9tition_espac%C3%A9e', :target => '_blank' %></p>
+              <p>A propos</p>
+          </div>
+            
           
-        
-      </div>
+        </div>
+
+
+      
+      
   </div>
 
 
