@@ -1,4 +1,4 @@
-<%= render 'shared/navbar-mobile' %>
+
 <div class="container" id="home-index">
 <div id="title" class="text-center hidden-xs"><h1>My ANKI</h1>
   <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
@@ -8,8 +8,8 @@
   <div class="row">
     <div class="col-xs-12 text-center">
       <ul class="list-vertical">
-        <li><%= link_to new_card_path,class:'btn-orange all-btn' do %><span class="fa fa-plus-square fa-1x"></span> Carte <% end %></li>
-        <li><%= link_to '/test_index',class:'btn-green all-btn' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
+        <li><%= link_to new_card_path,class:'btn-orange round-green-btn' do %><span class="fa fa-plus-square fa-1x"></span> Carte <% end %></li>
+        <li><%= link_to '/test_index',class:'btn-green round-green-btn' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
         <li></li>
 
         <li><i class="fa fa-battery-full" aria-hidden="true"></i>

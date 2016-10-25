@@ -1,15 +1,22 @@
 /*BUTTONS*/
+
+.round-green-btn {
+  border-radius: 20px;
+  padding: 3px 6px;
+  font-weight: 300;
+  &:hover {
+    background-color: #14e2d1;
+    color: #2C3D53;
+    box-shadow: 5px 3px 8px rgb(25, 29, 33);
+    border: 1px solid #2C3D53;
+  }
+}
 .btn-blue {
   border-radius: 20px;
   border: 1px solid #59C8E2;
   color: #59C8E2;
   padding: 10px 15px;
-  background: transparent !important;
-  &:hover {
-   background-color: #59C8E2 !important;
-   border: none;
-   color: #333B41;
-  }
+  background: transparent;
 
 }
 
@@ -26,7 +33,7 @@
   border: 1px solid #FBB31B;
   color: #FBB31B;
   padding: 10px 15px;
-  background: transparent !important;
+  background: transparent;
 }
 
 .btn-orange-small {
@@ -35,13 +42,8 @@
   color: #FBB31B;
   padding: 2px 2px;
   margin: 0px 5px;
-  background: transparent !important;
+  background: transparent;
   font-size: 1em;
-  &:hover {
-   background-color: #FBB31B !important;
-   border: none;
-   color: #333B41;
-  }
 }
 
 .btn-green {
@@ -49,7 +51,7 @@
   border-radius: 20px;
   border: 1px solid #26A65B;
   padding: 10px 15px;
-  background: transparent !important;
+  background: transparent;
 
 }
 
@@ -59,22 +61,14 @@
   border: 1px solid #26A65B;
   padding: 2px 2px;
   margin: 0px 5px;
-  background: transparent !important;
+  background: transparent;
   font-size: 1em
 }
 
 .all-btn:hover {
-  background-color: #FBB31B !important;
-  color: #333B41 !important;
-  border: none !important;
+  background-color: #FBB31B;
+  color: #333B41 ;
+
 }
 
-.btn-orange:hover {
-  border: 1px solid #59C8E2;
-  color: #59C8E2;
-}
 
-.btn-blue:hover {
-  border: 1px solid #FBB31B;
-  color: #FBB31B;
-}

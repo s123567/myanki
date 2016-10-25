@@ -65,6 +65,7 @@ class CardsController < ApplicationController
   end
 
   def edit
+    @cards = current_user.cards
     
   end
 

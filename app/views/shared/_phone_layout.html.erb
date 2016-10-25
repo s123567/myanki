@@ -1,5 +1,10 @@
-<% if @cards != 0 %>
+<% if @cards %>
   <div class="visible-xs">
+    <div class="navbar-mobile inline">
+      <li><%= link_to new_card_path,class:'btn-orange round-green-btn' do %><span class="fa fa-plus-square fa-1x"></span> Carte <% end %></li>
+      <li><%= link_to '/test_index',class:'btn-green round-green-btn' do %><span class="fa fa-graduation-cap fa-1x"></span> Tests <% end %></li>
+      <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class:'round-green-btn' %></li>
+    </div>
         
         <div class="row">
           <% @cards.each do |card| %>
@@ -21,8 +26,5 @@
         <% end %>
       </div>
       
-    
   </div> <!-- visible xs -->
-  <% else %>
-  <p>hjhjhjhjh</p>
   <% end %>

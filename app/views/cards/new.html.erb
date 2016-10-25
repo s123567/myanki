@@ -14,10 +14,10 @@
           
         <%= f.text_field :tag_list, class: "form-control" %>
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>
-        <%= f.button :submit, class:"btn btn-primary" %>
+        <%= f.button :submit, class:"btn-orange round-green-btn"%>
       <% end %>    
     <div class="text-center space-updown">
-          <%= link_to cards_path,class:'btn-green' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
+          <%= link_to cards_path,class:'btn-green round-green-btn' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
 
         </div>
     </div>  

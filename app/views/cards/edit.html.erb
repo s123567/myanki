@@ -16,15 +16,15 @@
 
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
         <%= f.label :tags, "Tags (separated by commas)" %>
-        <p>Déjà créés: <% Card.tag_counts.each do |tag| %>
+        <p>Déjà créés: <% @cards.tag_counts.each do |tag| %>
         <%= tag.name %>
         <% end %></p>
         <%= f.text_field :tag_list, class: "form-control" %>
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>
-        <%= f.button :submit, class:"btn btn-primary" %>
+        <%= f.button :submit, class:"btn-orange round-green-btn" %>
       <% end %>    
     <div class="text-center space-updown">
-          <%= link_to cards_path,class:'btn-green' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
+          <%= link_to cards_path,class:'btn-green round-green-btn' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
 
         </div>
     </div>  
