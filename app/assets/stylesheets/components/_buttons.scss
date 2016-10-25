@@ -71,4 +71,17 @@
 
 }
 
+.btn-orange, .btn-green {
 
+  box-sizing: border-box;
+  transition: all 500ms ease; 
+}
+
+.fa-trash-o, .fa-pencil {
+  box-sizing: border-box;
+  transition: all 500ms ease; 
+  &:hover {
+    color: #14e2d1;
+  }
+
+}

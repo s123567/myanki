@@ -11,12 +11,7 @@
     <!-- Réalisé par Mathieu Chiron, s123567@github.com -->
   </head>
   <body>
-    <% if notice || alert %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>    
-    <% end %>
     <%= yield %>
-
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

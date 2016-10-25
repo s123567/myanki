@@ -1,5 +1,9 @@
 
 <div class="container" id="home-index">
+  <% if notice || alert %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>    
+  <% end %>
 <div id="title" class="text-center hidden-xs"><h1>My ANKI</h1>
   <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
 </div>
@@ -49,8 +53,8 @@
                 </div>
                 <div class="col-sm-4 index-icons">
                   <div class="question-ctrls pull-right">
-                    <%= link_to edit_card_path(card),class:'modify space-right-left-sm' do %><span class="fa fa-pencil fa-2x modify"></span><% end %>
-                    <%= link_to card_path(card), method: :delete,class:'delete space-right-left-sm' do %><span class="fa fa-trash-o fa-2x delete"></span> <% end %>  
+                    <%= link_to edit_card_path(card),class:'index-btns modify space-right-left-sm' do %><span class="fa fa-pencil fa-2x modify"></span><% end %>
+                    <%= link_to card_path(card), method: :delete,class:'index-btns delete space-right-left-sm' do %><span class="fa fa-trash-o fa-2x delete"></span> <% end %>  
                   </div>    
                 </div>
               </div>

@@ -99,7 +99,8 @@ a {
   color: #FBB31B;
   text-decoration: none !important;
   &:hover {
-    
+    color: #14e2d1;
+    transition: all 500ms ease; 
   }
 }
 

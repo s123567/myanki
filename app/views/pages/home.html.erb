@@ -1,3 +1,4 @@
+
 <body class="landing-page">
   <div class="container" id="landing">
 
@@ -15,6 +16,10 @@
               <hr>
               <p><%= link_to 'Plus de détails sur ANKI', 'https://fr.wikipedia.org/wiki/R%C3%A9p%C3%A9tition_espac%C3%A9e', :target => '_blank', class:"round-green-btn" %></p>
               <p class="round-green-btn">A propos</p>
+              <% if notice || alert %>
+              <p class="notice delete"><%= notice %></p>
+              <p class="alert delete"><%= alert %></p>    
+              <% end %>
           </div>
             
           
