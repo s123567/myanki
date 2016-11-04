@@ -16,6 +16,7 @@ class CardsController < ApplicationController
       redirect_to cards_path
     else
       render 'new'
+      flash[:error] = "ghghgh"
     end
   end
 
