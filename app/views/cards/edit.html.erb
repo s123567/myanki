@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1 class="text-center">Modifier la carte</h1>
+      <%= render 'shared/error_messages' %>
       <%= simple_form_for @card, html: {multipart: true} do |f| %>
         <%= f.input :question %>
         <%= f.input :answer %>
@@ -15,10 +16,13 @@
           <% end %>
 
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-        <%= f.label :tags, "Tags (separated by commas)" %>
-        <p>Déjà créés: <% @cards.tag_counts.each do |tag| %>
-        <%= tag.name %>
-        <% end %></p>
+        <%= f.label :tag, label: 'Catégorie' %>
+        <span><i>Déja créées</i></span>
+        <!-- <p>Catégories existantes:</p> -->
+        <span><% ActsAsTaggableOn::Tagging.includes(:tag).uniq.pluck(:name).each do |cat|%>
+          <%= cat %>
+        <% end %>
+        </span>
         <%= f.text_field :tag_list, class: "form-control" %>
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>
         <%= f.button :submit, class:"btn-orange round-green-btn" %>
