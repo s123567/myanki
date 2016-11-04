@@ -1,6 +1,9 @@
 class Card < ApplicationRecord
   validates :question, presence: true
-  validates :answer, length: { maximum: 140 }
+
+  validates :answer, length: { maximum: 200 }, presence: true, unless: ->(card){card.picture.present?}
+  validates :picture, presence: true, unless: ->(card){card.answer.present?}
+
   validates :tag_list, presence: true
   acts_as_taggable
   validates :frequence, presence: true, inclusion: { in: %w(plus moyen moins), message: "%{value} n'est pa sune fréquence valide" }
