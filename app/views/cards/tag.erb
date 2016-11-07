@@ -1,0 +1,44 @@
+<h1>Cards of a tag</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <div class="col-xs-12">
+          <% if @cards %>
+          <div class="hidden-xs">
+
+                <% @cards.each do |card| %>
+                <div class="row question-block">
+                  <div class="col-sm-8 question-details">
+                      <h4><i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                      <%= link_to card.question, card_path(card) %></h4>
+                      <span class="index-tag"><%= raw card.tag_list.map { |t| t }.join (', ' )if card.tag_list != [] %></span>
+                      <span class="index-tag"><%= card.frequence %></span>
+                  </div>
+                  <div class="col-sm-4 index-icons">
+                    <div class="question-ctrls pull-right">
+                      <%= link_to edit_card_path(card),class:'index-btns modify space-right-left-sm' do %><span class="fa fa-pencil fa-2x modify"></span><% end %>
+                      <%= link_to card_path(card), method: :delete,class:'index-btns delete space-right-left-sm' do %><span class="fa fa-trash-o fa-2x delete"></span> <% end %>  
+                    </div>    
+                  </div>
+                </div>
+                <hr>
+              <% end %> <!-- each do card -->
+              <div class="pull-right hidden-xs">
+                <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>    
+              </div>
+
+              
+        </div> <!-- hiden xs -->
+          </div> <!-- col xs 12 -->
+          <% end %>
+      </div>
+
+      </div>  
+    </div>
+
+  <div class="text-center space-updown">
+    <%= link_to cards_path,class:'btn-green' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
+
+  </div>
+</div>

@@ -23,12 +23,16 @@ class CardsController < ApplicationController
   end
 
   def index
-    # if params[:tag]
-    #   @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
-    #   else
+    if params[:tag]
+      @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
+      else
         @cards = current_user.cards.paginate(page: params[:page], per_page: 10)
-        @cards_total = current_user.cards
-    # end
+    end
+    @cards_total = current_user.cards
+  end
+
+  def card_of_a_tag 
+    @cards = current_user.cards.tagged_with(params[:tag])
   end
 
   def test_index
