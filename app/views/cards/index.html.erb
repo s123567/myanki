@@ -60,6 +60,11 @@
               </div>
               <hr>
             <% end %> <!-- each do card -->
+            <div class="pull-right hidden-xs">
+              <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>    
+            </div>
+
+            
       </div> <!-- hiden xs -->
         </div> <!-- col xs 12 -->
         <% end %>

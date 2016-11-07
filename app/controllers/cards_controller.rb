@@ -4,9 +4,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    if params[:tag]
-      @cards = current_user.cards.tagged_with(params[:tag])
-    end
+    @cards = current_user.cards
 
   end
 
@@ -26,9 +24,9 @@ class CardsController < ApplicationController
 
   def index
     if params[:tag]
-      @cards = current_user.cards.tagged_with(params[:tag])
+      @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 4)
       else
-        @cards = current_user.cards
+        @cards = current_user.cards.paginate(page: params[:page], per_page: 4)
     end
   end
 

@@ -13,8 +13,9 @@
         <%= f.label :tag, label: 'Catégorie' %>
         <span><i>Déja créées</i></span>
         <!-- <p>Catégories existantes:</p> -->
-        <span><% ActsAsTaggableOn::Tagging.includes(:tag).uniq.pluck(:name).each do |cat|%>
-          <%= cat %>
+        <span><% @cards.tag_counts.each do |tag| %>
+          <%= tag %>
+          
         <% end %>
         </span>
         <%= f.text_field :tag_list, class: "form-control" %>

@@ -25,6 +25,8 @@
           </div>
         <% end %>
       </div>
-      
+      <div class="text-center">
+        <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>    
+      </div>
   </div> <!-- visible xs -->
   <% end %>
