@@ -24,9 +24,9 @@ class CardsController < ApplicationController
 
   def index
     if params[:tag]
-      @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 4)
+      @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
       else
-        @cards = current_user.cards.paginate(page: params[:page], per_page: 4)
+        @cards = current_user.cards.paginate(page: params[:page], per_page: 10)
     end
   end
 
