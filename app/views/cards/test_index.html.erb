@@ -7,12 +7,11 @@
         <div class="panel">
           <h2>Par catégorie</h2>
             <div class="test-index-panel">
-                  <% tag_cloud @cards.tag_counts, %w[s m l] do |tag, css_class| %>
+                  <% tag_cloud @cards_total.tag_counts, %w[s m l] do |tag, css_class| %>
                     <%= link_to test_tag_path(tag.name), class:'btn-blue-small' do %><span class="fa fa-tag fa-1x"></span> <%= tag.name %> <% end %> 
                   <% end %>    
-                  
-            </div>
-            <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>  
+                
+            </div>  
             
         </div>
           

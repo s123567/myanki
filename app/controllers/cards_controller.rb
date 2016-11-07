@@ -33,6 +33,7 @@ class CardsController < ApplicationController
 
 
   def test_index
+    @cards_total = current_user.cards
     @cards = current_user.cards.paginate(page: params[:page], per_page: 5)
     if params[:tag]
       @cards = current_user.cards.tagged_with(params[:tag])
@@ -42,11 +43,13 @@ class CardsController < ApplicationController
   end
 
   def test_tag
+
     @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 1)
     @card = @cards.sample
   end
 
   def test_frequence
+
     @cards = current_user.cards.paginate(page: params[:page], per_page: 1)
     if params[:filter]
     @cards = current_user.cards.select { |card| card[:frequence] == params[:filter] }
