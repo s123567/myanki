@@ -16,5 +16,14 @@ Card.create question: "Ou se situe la colombie", answer: "En espagne", frequence
 Card.create question: "Quand a eu lieu la premiere guerre?", answer: "La mariée du lapin", frequence: 'plus', tag_list: 'guitare', user: moi
 Card.create question: "Quand a eu lieu l'opiacée?", answer: "Le léopard du soir dans un brancard", frequence: 'moyen', tag_list: 'code', user: moi
 Card.create question: "Ou a eu lieu le stade?", answer: "Le 14 juillet", frequence: 'moyen', tag_list: 'code', user: moi
-Card.create question: "Ou vont les hirondelles ?", answer: " en janvier", frequence: 'plus', tag_list: 'guitare', user: lui
+Card.create question: "Ou vont les hirondelles ?", answer: " en janvier", frequence: 'plus', tag_list: 'guitare', user: moi
 Card.create question: "Comment va le pape ?", answer: "Ca roule grave", frequence: 'plus', tag_list: 'guitare', user: moi
+Card.create question: "Quand a eu lieu la premiere guerre?", answer: "La mariée du lapin", frequence: 'plus', tag_list: 'guitare', user: moi
+Card.create question: "Quand a eu lieu l'opiacée?", answer: "Le léopard du soir dans un brancard", frequence: 'moyen', tag_list: 'code', user: moi
+Card.create question: "Ou a eu lieu le stade?", answer: "Le 14 juillet", frequence: 'moyen', tag_list: 'code', user: moi
+Card.create question: "Ou vont les hirondelles ?", answer: " en janvier", frequence: 'plus', tag_list: 'guitare', user: moi
+Card.create question: "Comment va le pape ?", answer: "Ca roule grave", frequence: 'plus', tag_list: 'guitare', user: moi
+Card.create question: "Ou vont les hirondelles ?", answer: " en janvier", frequence: 'plus', tag_list: 'guitare', user: moi
+Card.create question: "Comment va le pape ?", answer: "Ca roule grave", frequence: 'plus', tag_list: 'guitare', user: moi
+Card.create question: "Quand a eu lieu la premiere guerre?", answer: "La mariée du lapin", frequence: 'plus', tag_list: 'guitare', user: moi
+Card.create question: "Quand a eu lieu l'opiacée?", answer: "Le léopard du soir dans un brancard", frequence: 'moyen', tag_list: 'code', user: moi

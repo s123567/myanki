@@ -21,7 +21,7 @@
             <div id="cat-block">
               <h4>Mes catégories</h4>
             <% if @cards %>
-              <% tag_cloud @cards.tag_counts, %w[s m l] do |tag, css_class| %>
+              <% tag_cloud @cards_total.tag_counts, %w[s m l] do |tag, css_class| %>
               <li><i class="fa fa-puzzle-piece" aria-hidden="true"></i><%= link_to tag.name, tag_path(tag.name), class:'index-tag css_class all-btn cat-block' %>
               </li>
               <hr class="hr-red text-center">
