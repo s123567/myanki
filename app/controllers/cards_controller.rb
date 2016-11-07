@@ -31,9 +31,6 @@ class CardsController < ApplicationController
     @cards_total = current_user.cards
   end
 
-  def card_of_a_tag 
-    @cards = current_user.cards.tagged_with(params[:tag])
-  end
 
   def test_index
     @cards = current_user.cards.paginate(page: params[:page], per_page: 5)

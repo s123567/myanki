@@ -7,6 +7,5 @@ Rails.application.routes.draw do
   get 'test/:filter', to: 'cards#test_frequence', as: :test_frequence
   get 'test_index', to: 'cards#test_index', as: :test_index
 
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
