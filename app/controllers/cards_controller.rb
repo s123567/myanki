@@ -4,7 +4,9 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.new
-    @cards = current_user.cards
+    if params[:tag]
+      @cards = current_user.cards.tagged_with(params[:tag])
+    end
 
   end
 
