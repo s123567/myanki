@@ -18,8 +18,8 @@
         <div class="panel">
           <h2>Par récurrence</h2>
           <div class="test-index-panel">
-            <% Card.select("DISTINCT(FREQUENCE)").each do |card| %>
-            <%= link_to test_frequence_path(card.frequence),class:'btn-orange-small' do %><span class="fa fa-calendar fa-1x"></span> <%= card.frequence %> <% end %>
+            <% Card.unscoped.all.select("DISTINCT(FREQUENCE)").each do |card| %>
+            <%= link_to test_frequence_path(card.frequence),class:'btn-orange' do %><span class="fa fa-calendar fa-1x"></span> <%= card.frequence %> <% end %>
             <% end %>  
           </div>
             

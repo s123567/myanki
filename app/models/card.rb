@@ -6,7 +6,7 @@ class Card < ApplicationRecord
 
   validates :tag_list, presence: true
   acts_as_taggable
-  validates :frequence, inclusion: { in: %w(plus moyen moins), message: "%{value} n'est pa sune fréquence valide" }
+  validates :frequence, inclusion: { in: %w(plus moyen moins), message: "%{value} n'est pas une fréquence valide" }
   mount_uploader :picture, PictureUploader
   validate :picture_size
   belongs_to :user
