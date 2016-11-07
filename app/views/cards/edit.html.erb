@@ -17,12 +17,15 @@
 
         <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
         <%= f.label :tag, label: 'Catégorie' %>
-        <span><i>Déja créées</i></span>
         <!-- <p>Catégories existantes:</p> -->
-        <span><% ActsAsTaggableOn::Tagging.includes(:tag).uniq.pluck(:name).each do |cat|%>
-          <%= cat %>
+        <% if @cards%>
+          <span><i>Déja créées</i></span>
+          <span><% @cards.tag_counts.each do |tag| %>
+            <%= tag %>
+          <% end %>
+          </span>
         <% end %>
-        </span>
+        
         <%= f.text_field :tag_list, class: "form-control" %>
         <%= f.input :frequence, collection: ['plus', 'moyen', 'moins'], prompt: 'Choisssez une récurrence' %>
         <%= f.button :submit, class:"btn-orange round-green-btn" %>

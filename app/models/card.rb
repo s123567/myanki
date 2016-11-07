@@ -1,6 +1,5 @@
 class Card < ApplicationRecord
   validates :question, presence: true
-
   validates :answer, presence: true, unless: ->(card){card.picture.present?}
   validates :picture, presence: true, unless: ->(card){card.answer.present?}
   default_scope -> { order(created_at: :desc) }

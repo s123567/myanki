@@ -10,10 +10,6 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-    @card.user = current_user
-    if @card.answer || @card.image != nil
-      
-    end
     if @card.save
       flash[:success] = "Carte créée"
       redirect_to cards_path
