@@ -1,12 +1,13 @@
 class Card < ApplicationRecord
   validates :question, presence: true
 
-  validates :answer, length: { maximum: 200 }, presence: true, unless: ->(card){card.picture.present?}
+  validates :answer, presence: true, unless: ->(card){card.picture.present?}
   validates :picture, presence: true, unless: ->(card){card.answer.present?}
+  default_scope -> { order(created_at: :desc) }
 
   validates :tag_list, presence: true
   acts_as_taggable
-  validates :frequence, presence: true, inclusion: { in: %w(plus moyen moins), message: "%{value} n'est pa sune fréquence valide" }
+  validates :frequence, inclusion: { in: %w(plus moyen moins), message: "%{value} n'est pa sune fréquence valide" }
   mount_uploader :picture, PictureUploader
   validate :picture_size
   belongs_to :user
