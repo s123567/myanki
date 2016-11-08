@@ -47,6 +47,11 @@
 
 }
 
+.test-index-panel {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 #left-container {
   width: 24%;
@@ -241,14 +246,16 @@ input#answer:checked ~ span#content {
     flex-direction: column;
     flex-flow: column wrap;
     justify-content: center;
-
-
   }
 
   #hero {
     padding-top: 2em;
   }
 
+  .test-index-panel {
+    display: flex;
+    flex-direction: column;
+  }
   .round-green-btns, .round-green-btn {
     font-size: 0.75em
   }
@@ -280,6 +287,11 @@ input#answer:checked ~ span#content {
     flex-flow: column wrap;
     justify-content: center;
 
+  }
+
+  .test-index-panel {
+    display: flex;
+    flex-direction: column;
   }
 
   .round-green-btns , .round-green-btn {

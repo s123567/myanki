@@ -10,6 +10,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
+    @card.user = current_user
     if @card.save
       flash[:success] = "Carte créée"
       redirect_to cards_path
@@ -30,10 +31,10 @@ class CardsController < ApplicationController
 
   def test_index
     @cards_total = current_user.cards
-    @cards = current_user.cards.paginate(page: params[:page], per_page: 5)
+    @cards = current_user.cards
     if params[:tag]
       @cards = current_user.cards.tagged_with(params[:tag])
-      @cards = @cards.paginate(page: params[:page], per_page: 5)
+      @cards = @cards.paginate
     end
 
   end
