@@ -8,16 +8,21 @@ class Card < ApplicationRecord
   acts_as_taggable
   validates :frequence, inclusion: { in: %w(plus moyen moins), message: "%{value} n'est pas une fréquence valide" }
   mount_uploader :picture, PictureUploader
-  validate :picture_size
+  validate :picture_size_validation, :if => "picture?"  
+  validates_attachment_presence :datafile unless :datafile
+
   belongs_to :user
 
   private
+    def picture_size_validation
+      errors[:picture] << "Photo attachée doit être inférieure à 2MB" if picture.size > 2000
+    end
 
       # Validates the size of an uploaded picture.
-      def picture_size
-        if picture.size > 2.megabytes
-          errors.add(:picture, "should be less than 2MB")
-        end
-      end
+      # def picture_size
+      #   if picture.size > 2.megabytes
+      #     errors.add(:picture, "should be less than 2MB")
+      #   end
+      # end
 
 end

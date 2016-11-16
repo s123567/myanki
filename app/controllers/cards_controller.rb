@@ -47,10 +47,10 @@ class CardsController < ApplicationController
 
   def test_frequence
 
-    @cards = current_user.cards.paginate(page: params[:page], per_page: 1)
+    @cards = current_user.cards.paginate(page: params[:page], per_page: 3)
     if params[:filter]
     @cards = current_user.cards.select { |card| card[:frequence] == params[:filter] }
-    @cards = @cards.paginate(page: params[:page], per_page: 1)
+    @cards = @cards.paginate(page: params[:page], per_page: 3)
   end
     @card = @cards.sample
   end

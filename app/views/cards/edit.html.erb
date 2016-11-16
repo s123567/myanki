@@ -10,12 +10,9 @@
         <% if @card.picture? %>
         <h3>image choisie</h3>
           <%= image_tag @card.picture.url %>
-          <% else %>
-          <h3>Réponse choisie</h3>
-          <%= @card.answer %>
           <% end %>
 
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        <%= f.file_field :picture, class:'btn-orange', accept: 'image/jpeg,image/gif,image/png' %>
         <%= f.label :tag, label: 'Catégorie' %>
         <!-- <p>Catégories existantes:</p> -->
         <% if @cards%>

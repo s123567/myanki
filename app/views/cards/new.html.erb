@@ -8,7 +8,8 @@
         <%= f.input :question, label: 'Question' %>
         <p><i>Ajoutez une réponse OU une image</i></p>
         <%= f.input :answer, label: 'Réponse' %>
-        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        <%= f.file_field :picture, class:'btn-orange', accept: 'image/jpeg,image/gif,image/png' %>
+
         <br>
         <%= f.label :tag, label: 'Catégorie' %>
         
