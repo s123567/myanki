@@ -15,7 +15,7 @@ class Card < ApplicationRecord
 
   private
     def picture_size_validation
-      errors[:picture] << "Photo attachée doit être inférieure à 2MB" if picture.size > 2000
+      errors[:picture] << "Photo attachée doit être inférieure à 2MB, ici #{picture.size}" if picture.size > 2.megabytes
     end
 
       # Validates the size of an uploaded picture.
