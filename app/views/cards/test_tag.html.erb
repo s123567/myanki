@@ -3,7 +3,8 @@
     <div class="col-md-6 col-md-offset-3 text-center">
       <h2>Le test <%= @card.tag_list %> </h2>
       <div id="question">
-        <%= @card.question %>  
+        <%= @card.question %>
+        <p><%= @count %> / <%= @cards.count %></p>  
       </div>
       <br>
           <label for="answer"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></label>
@@ -17,11 +18,11 @@
           </span>
           <br>
 
-          <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>    
+          <%= will_paginate @cards, renderer: BootstrapPagination::Rails, :page_links => false %>    
     </div>
   </div>
   <div class="text-center space-updown">
     <%= link_to cards_path,class:'btn-green' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
-
+  
   </div>
 </div>

@@ -43,6 +43,13 @@ class CardsController < ApplicationController
 
     @cards = current_user.cards.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 1)
     @card = @cards.sample
+
+    if params[:page].nil?
+      @count = 1
+    else
+      @count = params[:page]
+    end
+
   end
 
   def test_frequence
@@ -53,6 +60,13 @@ class CardsController < ApplicationController
     @cards = @cards.paginate(page: params[:page], per_page: 3)
   end
     @card = @cards.sample
+
+    if params[:page].nil?
+      @count = 1
+    else
+      @count = params[:page]
+    end
+
   end
 
 

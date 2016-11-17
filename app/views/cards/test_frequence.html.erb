@@ -5,6 +5,7 @@
             <h1>Le test de la récurrence <%=params[:filter] %></h1>
             <div id="question">
                 <%= @card.question %>
+                <p><%= @count %> / <%= @cards.count %></p>  
             </div>
               <br>
                 <label for="answer"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></label>
@@ -18,7 +19,7 @@
                 </span>
                 
                 <br>
-                  <%= will_paginate @cards , renderer: BootstrapPagination::Rails %>    
+                  <%= will_paginate @cards, renderer: BootstrapPagination::Rails, :page_links => false %>    
           </div>
 
         </div>
@@ -29,6 +30,8 @@
       <% else %>
         <h2>Tu n'as pas encore ajouté de cartes.</h2>
         <p><%= link_to "Clique-ici", new_card_path %> pour démarrer</p>
+        <div class="text-center space-updown">
+          <%= link_to cards_path,class:'btn-green' do %><span class="fa fa-arrow-right fa-1x"></span> Accueil <% end %>
       <% end %>
 
       

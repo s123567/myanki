@@ -13,6 +13,7 @@ class Card < ApplicationRecord
 
   belongs_to :user
 
+
   private
     def picture_size_validation
       errors[:picture] << "Photo attachée doit être inférieure à 2MB, ici #{picture.size}" if picture.size > 2.megabytes
